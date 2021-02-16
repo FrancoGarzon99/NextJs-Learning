@@ -1,12 +1,11 @@
-import Head from 'next/head';
-import HomeContainer from '../Components/HomeContainer/HomeContainer';
+import Layout from '../components/layout';
+import HomeContainer from '../components/home/HomeContainer';
 const Home = () => {
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
-      <HomeContainer />
+      <Layout>
+        <HomeContainer />
+      </Layout>
     </>
   );
 };
