@@ -1,6 +1,6 @@
-import { Grid, Box } from '@chakra-ui/layout';
+import { Grid, Box } from "@chakra-ui/react";
 
-const Hero = () => {
+const Hero = (): JSX.Element => {
   return (
     <Grid templateColumns="repeat(2,1fr)">
       <Box bg="tomato">Box 1 </Box>

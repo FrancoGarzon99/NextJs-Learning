@@ -1,0 +1,11 @@
+.next
+node_module/
+/next-env.d.ts
+/public
+.eslintrc.json
+/README.md
+.tsconfig.json
+/prettierrc.ts
+/package.json
+/package-lock.json
+/styles
