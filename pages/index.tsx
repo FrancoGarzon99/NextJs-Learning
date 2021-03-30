@@ -1,5 +1,5 @@
-import Layout from "../components/layout";
-import HomeContainer from "../components/home/HomeContainer";
+import Layout from '../components/Layout';
+import HomeContainer from '../components/Home/HomeContainer';
 const Home = (): JSX.Element => {
   return (
     <>
