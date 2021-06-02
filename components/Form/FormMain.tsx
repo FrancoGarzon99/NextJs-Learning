@@ -16,9 +16,7 @@ const FormMain = (): JSX.Element => {
           <Box>
             <FormDataMain />
           </Box>
-          <Box>
-            <FormBoxes />
-          </Box>
+          <Box>{/* <FormBoxes /> */}</Box>
           <Button type="submit">Guardar</Button>
         </form>
       </FormProvider>

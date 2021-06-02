@@ -14,12 +14,28 @@ import { useFormContext } from "react-hook-form";
 
 const FormBoxes = (): JSX.Element => {
   const { register, formState } = useFormContext();
-  const [indexes, setIndexes] = React.useState([]);
-  const [counter, setCounter] = React.useState(0);
+  const [monedaList, setMonedaList] = React.useState([]);
+  const [counterMonedasList, setCounterMonedasList] = React.useState(0);
+  const [usersList, setUsersList] = React.useState([]);
+  const [counterUsersList, setCounterUsersList] = React.useState(0);
 
-  const addFriend = () => {
-    setIndexes((prevIndexes) => [...prevIndexes, counter]);
-    setCounter((prevCounter) => prevCounter + 1);
+  const addMonedas = () => {
+     // @ts-ignore: Unreachable code error
+     setMonedaList((monedaList) => [...monedaList, counterMonedasList]);
+     setCounterMonedasList(prevCounterMonedas => prevCounterMonedas + 1);
+  };
+  const removeMonedas = (index:any) => () => {
+    setMonedaList(monedaList => [...monedaList.filter(item => item !== index)]);
+    setCounterMonedasList(prevCounterMonedas => prevCounterMonedas - 1);
+  };
+  const addUserList = () => {
+     // @ts-ignore: Unreachable code error
+     setUsersList((usersList) => [...usersList, counterUsersList]);
+     setCounterUsersList(prevCounterUser => prevCounterUser + 1);
+  };
+  const removeUserList = (index:any) => () => {
+    setUsersList(usersList => [...usersList.filter(item => item !== index)]);
+    setCounterUsersList(prevCounterUser => prevCounterUser - 1);
   };
 
   return (
@@ -33,54 +49,40 @@ const FormBoxes = (): JSX.Element => {
         <TabPanel>
           <Box>
             <Text>MONEDAS</Text>
-            <Input
-              {...register("monedasExamples.moneda1", { required: true })}
-              placeholder="Moneda 1 "
-            />
-            {formState.errors.monedasExamples?.moneda1 && <span>Moneda 1 es requerido</span>}
-            <Input
-              {...register("monedasExamples.moneda2", { required: true })}
-              placeholder="Moneda 2 "
-            />
-            {formState.errors.monedasExamples?.moneda2 && <span>Moneda 2 es requerido</span>}
-
-            <Input
-              {...register("monedasExamples.moneda3", { required: true })}
-              placeholder="Moneda 3"
-            />
-            {formState.errors.monedasExamples?.moneda3 && <span>Moneda 3 es requerido</span>}
-
-            <Input
-              {...register("monedasExamples.moneda4", { required: true })}
-              placeholder="Moneda 4"
-            />
-            {formState.errors.monedasExamples?.moneda4 && <span>Moneda 4 es requerido</span>}
-            {indexes.map((fila) => {
+            {monedaList.map((moneda) => {
               return (
-                <Box key={fila}>
-                  <Input {...register(`monedasExamples.fila${fila}`)} placeholder={`fila${fila}`} />
+                <Box key={moneda}>
+                  {/*  @ts-ignore: Unreachable code error */}
+                  <Input {...register(`monedasExamples.fila${moneda}`)} placeholder={`fila${moneda}`} />
+                  <Button type="button" onClick={removeMonedas(moneda)}>
+                    Quitar
+                  </Button>
                 </Box>
               );
             })}
           </Box>
-          <Button type="button" onClick={addFriend}>
-            Agregar fila
+          <Button type="button" onClick={addMonedas}>
+            Agregar Moneda
           </Button>
         </TabPanel>
         {/* USUARIOS */}
         <TabPanel>
           <Box>
             <Text>USUARIOS</Text>
-            <Input {...register("usersExamples.user1", { required: true })} placeholder="user 1" />
-            {formState.errors.usersExamples?.user1 && <span>User 1 es requerido</span>}
-            <Input {...register("usersExamples.user2", { required: true })} placeholder="user 2" />
-            {formState.errors.usersExamples?.user2 && <span>User 2 es requerido</span>}
-
-            <Input {...register("usersExamples.user3", { required: true })} placeholder="user 3" />
-            {formState.errors.usersExamples?.user3 && <span>User 3 es requerido</span>}
-
-            <Input {...register("usersExamples.user4", { required: true })} placeholder="user 4" />
-            {formState.errors.usersExamples?.user4 && <span>User 4 es requerido</span>}
+            {usersList.map((user) => {
+              return (
+                <Box key={user}>
+                  {/*  @ts-ignore: Unreachable code error */}
+                  <Input {...register(`usersExamples.user${user}`)} placeholder={`user${user}`} />
+                  <Button type="button" onClick={removeUserList(user)}>
+                    Quitar
+                  </Button>
+                </Box>
+              );
+            })}
+          <Button type="button" onClick={addUserList}>
+            Agregar User
+          </Button>
           </Box>
         </TabPanel>
       </TabPanels>
