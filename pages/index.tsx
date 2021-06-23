@@ -1,10 +1,10 @@
 import React from "react";
-import FormMain from "../components/Form/FormMain";
+import DynamicContainer from '../components/DynamicComponents/DynamicContainer';
 
 const Index = (): JSX.Element => {
   return (
     <div>
-      <FormMain />
+      <DynamicContainer />
     </div>
   );
 };
