@@ -1,10 +1,10 @@
 import React from "react";
-import DynamicContainer from '../components/DynamicComponents/DynamicContainer';
+import AccordionSlider from '../components/AccordionSlider/AccordionSlider';
 
 const Index = (): JSX.Element => {
   return (
     <div>
-      <DynamicContainer />
+      <AccordionSlider />
     </div>
   );
 };
